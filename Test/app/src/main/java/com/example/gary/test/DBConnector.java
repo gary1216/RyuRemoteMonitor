@@ -3,6 +3,8 @@ package com.example.gary.test;
 /**
  * Created by gary on 2016/7/25.
  */
+import android.util.Log;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -24,8 +26,8 @@ public class DBConnector {
 
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://127.0.0.1/mysqlInc.php");
-            ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+            HttpPost httpPost = new HttpPost("http://127.0.0.1/acdb.php");
+            ArrayList<NameValuePair> params = new ArrayList<>();
             params.add(new BasicNameValuePair("query_string", query_string));
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
             HttpResponse httpResponse = httpClient.execute(httpPost);
@@ -35,14 +37,14 @@ public class DBConnector {
 
             BufferedReader bufReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"), 8);
             StringBuilder builder = new StringBuilder();
-            String line = null;
+            String line;
             while((line = bufReader.readLine()) != null) {
-                builder.append(line + "\n");
+                builder.append(line).append("\n");
             }
             inputStream.close();
             result = builder.toString();
         } catch(Exception e) {
-            // Log.e("log_tag", e.toString());
+            Log.e("log_tag", e.toString());
         }
 
         return result;
