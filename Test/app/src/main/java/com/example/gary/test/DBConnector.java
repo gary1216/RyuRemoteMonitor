@@ -4,6 +4,7 @@ package com.example.gary.test;
  * Created by gary on 2016/7/25.
  */
 import android.util.Log;
+import android.widget.TextView;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -21,17 +22,16 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class DBConnector {
-    public static String executeQuery(String query_string) {
-        String result = "";
-
+    public static String executeQuery(String query_string, TextView view2) {
+        String result = "return result string";
+        view2.setText("inside the class call");
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://127.0.0.1/acdb.php");
+            HttpPost httpPost = new HttpPost("http://10.0.0.2/acdb.php");
             ArrayList<NameValuePair> params = new ArrayList<>();
             params.add(new BasicNameValuePair("query_string", query_string));
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
-            HttpResponse httpResponse = httpClient.execute(httpPost);
-            //view_account.setText(httpResponse.getStatusLine().toString());
+            HttpResponse httpResponse = httpClient.execute(httpPost);//this line is with major fault
             HttpEntity httpEntity = httpResponse.getEntity();
             InputStream inputStream = httpEntity.getContent();
 
