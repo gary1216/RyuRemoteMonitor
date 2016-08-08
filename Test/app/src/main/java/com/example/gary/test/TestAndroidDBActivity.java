@@ -87,20 +87,22 @@ public class TestAndroidDBActivity extends Activity {
                     //所以這裡假設有超過一條結果囉
                     JSONObject jsonData = new JSONObject(result);
                 */
-                JSONArray jsonArray = new JSONArray(result);
+                /*JSONArray jsonArray = new JSONArray(result);
                 for(int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonData = jsonArray.getJSONObject(i);
+                    JSONObject jsonData = jsonArray.getJSONObject(i);*/
                     TableRow tr = new TableRow(TestAndroidDBActivity.this);
                     tr.setLayoutParams(row_layout);
                     tr.setGravity(Gravity.CENTER_HORIZONTAL);
 
                     // create textview objects for each row of the result.
                     TextView user_acc = new TextView(TestAndroidDBActivity.this);
-                    user_acc.setText(jsonData.getString("account"));
+                    user_acc.setText("Dude, ");
+                    //user_acc.setText(jsonData.getString("account"));
                     user_acc.setLayoutParams(view_layout);
 
                     TextView user_pwd = new TextView(TestAndroidDBActivity.this);
-                    user_pwd.setText(jsonData.getString("passwd"));
+                    //user_pwd.setText(jsonData.getString("passwd"));
+                    user_pwd.setText("seriously? ");
                     user_pwd.setLayoutParams(view_layout);
 
                     //add the TextView objects to the TableRow
@@ -109,7 +111,7 @@ public class TestAndroidDBActivity extends Activity {
                     //add the TableRow to our TableLayout object: user_list.
                     // so it can finally be shown on the screen ??
                     user_list.addView(tr);
-                }
+                //}
             } catch(Exception e) {
                 Log.e("log_tag", e.toString());
             }
