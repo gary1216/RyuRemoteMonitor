@@ -2,19 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <Button
         android:id="@+id/get_record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="抓資料囉！" />
+        android:text="@string/string2" />
 
 
     <TableLayout
         android:id="@+id/user_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.10">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="14">
+
+            <TextView
+                android:id="@+id/show"
+                android:layout_gravity="center_horizontal"
+                android:text="click the button"
+                android:layout_column="9" />
+
+        </TableRow>
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="New Text"
+                android:id="@+id/view2"
+                android:layout_column="9" />
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

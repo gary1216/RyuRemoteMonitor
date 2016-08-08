@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Test</string>
     <string name="hello_world">Hello world!</string>
+    <string name="string1">19487 在activity_main.xml加上全新的textview, 把字尻在上面!</string>
+    <string name="string2">抓資料囉！</string>
 </resources>
