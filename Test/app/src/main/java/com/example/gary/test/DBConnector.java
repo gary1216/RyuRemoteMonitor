@@ -19,12 +19,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class DBConnector {
+
+
+
     public static String executeQuery(String query_string) {
         String result = "";
 
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://127.0.0.1/mysqlInc.php");
+            HttpPost httpPost = new HttpPost("http://10.0.2.2/android_connect_db.php");
             ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("query_string", query_string));
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
