@@ -27,7 +27,7 @@ public class DBConnector {
         view2.setText("inside the class call");
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://10.0.0.2/acdb.php");
+            HttpPost httpPost = new HttpPost("http://yutol2016.alwaysdata.net/acdb.php");
             ArrayList<NameValuePair> params = new ArrayList<>();
             params.add(new BasicNameValuePair("query_string", query_string));
             httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
@@ -46,7 +46,7 @@ public class DBConnector {
         } catch(Exception e) {
             Log.e("log_tag", e.toString());
         }
-
+        view2.setText(result);
         return result;
     }
 }
