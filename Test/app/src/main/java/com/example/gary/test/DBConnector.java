@@ -22,9 +22,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class DBConnector {
-    public static String executeQuery(String query_string, TextView view2) {
-        String result = "return result string";
-        view2.setText("inside the class call");
+    public static String executeQuery(String query_string) {
+        String result = "return result string" ;
         try {
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost("http://yutol2016.alwaysdata.net/acdb.php");
@@ -46,7 +45,6 @@ public class DBConnector {
         } catch(Exception e) {
             Log.e("log_tag", e.toString());
         }
-        view2.setText(result);
         return result;
     }
 }

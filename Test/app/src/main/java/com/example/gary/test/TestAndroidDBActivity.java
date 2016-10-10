@@ -73,19 +73,18 @@ public class TestAndroidDBActivity extends Activity {
         public void onClick(View v) {
             // TODO Auto-generated method stub
             TableLayout user_list = (TableLayout)findViewById(R.id.user_list);
-            TextView show = (TextView)findViewById(R.id.show) ;
-            TextView view2 = (TextView)findViewById(R.id.view2) ;
             user_list.setStretchAllColumns(true);
             //get the layout entity, and do some tweaks.
 
-            show.setText("0..0") ;
+            //show.setText("persian cat WTF") ;
+
 
             TableLayout.LayoutParams row_layout = new TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             TableRow.LayoutParams view_layout = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
 
             try {
-                String result = DBConnector.executeQuery("SELECT * FROM user", view2);
+                String result = DBConnector.executeQuery("SELECT * FROM sdn");
 
 
 
@@ -105,12 +104,12 @@ public class TestAndroidDBActivity extends Activity {
                     // create textview objects for each row of the result.
                     TextView user_acc = new TextView(TestAndroidDBActivity.this);
                     //user_acc.setText("Dude, ");
-                    user_acc.setText(jsonData.getString("account"));
+                    user_acc.setText(jsonData.getString("src"));
                     user_acc.setLayoutParams(view_layout);
 
                     TextView user_pwd = new TextView(TestAndroidDBActivity.this);
                     //user_pwd.setText("seriously? ");
-                    user_pwd.setText(jsonData.getString("passwd"));
+                    user_pwd.setText(jsonData.getString("dst"));
                     user_pwd.setLayoutParams(view_layout);
 
                     //add the TextView objects to the TableRow
